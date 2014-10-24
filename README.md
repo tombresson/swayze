@@ -10,6 +10,7 @@ turfyman-swayze
   + Added related posts at the bottom of the single posts
   + Modified and wrote a lot of really shitty CSS (please don't lambaste me! I'm not a web designer!)
   
+The theme running on my personal blog can be found here: http://tombresson.com
   
 I've tested the theme on FF, Chrome, iOS Safari, and IE10/11. The theme completely breaks on IE9 and I'm sure some older versions of Chrome/FF/Safari too. I'm not even going to attempt to fix this, as it would take me way more time than it's worth to me.
 
