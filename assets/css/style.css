@@ -172,6 +172,9 @@ sub {
   font-size: 50%;
   vertical-align: sub;
 }
+iframe{
+   width: 100%;
+}
 /**
  * Variables
  */
@@ -231,12 +234,21 @@ sub {
     zoom: 1;
   }
 }
+/* UTILITIES */
+
+/* Hides shit */
+.hidden {
+    text-indent: -9999px;
+    visibility: hidden;
+    display: none;
+}
+
 /* DEFAULTS */
 html {
   font-size: 62.5%;
 }
 body {
-  padding: 0 2.618em;
+  padding: 0 1.5em;
   font-size: 1.6em;
   line-height: 1.618;
   color: #464646;
@@ -272,6 +284,44 @@ a {
 a:hover {
   color: #088933;
 }
+a.gplus, a.twitter, a.reddit,
+a.instagram, a.youtube, a.facebook, 
+a.github, a.steam, a.spotify{
+   display:inline-block;
+   opacity: 0.5;
+}
+a.gplus{
+  color: #dd4b39;
+}
+a.twitter{
+  color: #55acee;
+}
+a.reddit{
+  color: #000130;
+}
+a.instagram{
+  color: #4D2B00;
+}
+a.youtube{
+  color: #CC181E;
+}
+a.facebook{
+  color: #3B5998;
+}
+a.github{
+  color: #333333;
+}
+a.steam{
+  color: #000000;
+}
+a.spotify{
+  color: #B3D500;
+}
+a.gplus:hover, a.twitter:hover, a.reddit:hover, 
+a.instagram:hover, a.youtube:hover, a.facebook:hover, 
+a.github:hover, a.steam:hover, a.spotify:hover{
+    opacity: 1;
+}
 /* Typography */
 /*
 	All typography (and layout) based on a modular scale using 12 & 14 px values scaled in accordance the golden ratio (1.618)
@@ -304,6 +354,10 @@ h1 {
 h2 {
   font-size: 1.387em;
   line-height: 1.387em;
+}
+h2.menu{
+    margin: .4em 1em .4em 0em;
+    float: left;
 }
 h3 {
   font-size: 1.15em;
@@ -361,22 +415,164 @@ blockquote p {
   font-style: italic;
   font-size: 1.1em;
 }
+.image-post-title{
+   margin: 0;
+}
+.inline-div{
+	display: inline-block;
+}
+.about-icon{
+    margin: 0.2em;
+}
+.nav-icon{
+    margin-right: 0.25em;
+}
+.menu-icon{
+    float: left;
+    margin: 0.3em 0.3em 0.3em 0.5em;
+}
+/* Begin Navigation Bar Styling */
+#navbar, #socialbar, #articlenavbar, #imagearticlenavbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #f2f2f2;
+   border-top: 1px solid #ccc; 
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -ms-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8em;
+  display: -ms-inline-flexbox;
+  -ms-flex-direction: row;
+  -ms-flex-line-pack: justify;
+  -ms-flex-wrap: nowrap;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-around;
+  justify-content: space-around; 
+}
+#navbar li {
+   width: 100%;
+   border-right: 1px solid #ccc; 
+   -webkit-flex: 0 1 auto;
+   -ms-flex: 0 1 auto;
+   flex: 0 1 auto;
+}
+#imagearticlenavbar li{
+   /*for ie10 flexbox*/
+   padding: 0px 15px;
+}
+#navbar li:last-child{
+    border:none;
+}
+#navbar li a {
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    text-align: center;      
+}
+#navbar li a:hover {
+      color: #088933;
+      background-color: #fff; 
+}      
+#navbar li.icon{
+    float: right;
+    border-left: 1px solid #ccc;
+    border-right-style: none;
+}
+#navbar li.icon a{
+    border-right-style: none;
+}
+#articlenavbar{
+    background: none;
+    border-top: 0px;
+}
+#imagearticlenavbar{
+    padding: .5em 0 .5em 0;
+    background-color: #000;
+    background: rgba(0,0,0,0.3);
+    border: 0px;
+    border-radius: 10px;
+}
+/* End navigation bar styling. */
+
+/* slider menu */
+#menu-bar{
+    display: inline-block;
+    width: 100%;
+    border-bottom: 5px solid #dddddd;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+/* this helps js perf on ios? */
+#menu-bar a:active{
+   color: inherit;
+   text-decoration: none; 
+}
+#menu-toggle{
+   display: none;
+}
+#social-menu-item{
+cursor: pointer; cursor: hand; 
+}
+#socialbar-slider{
+   display: none;
+}
+#socialbar-slider.accordion_css3_support {
+        max-height: 0;
+        display: block;
+        overflow: hidden;
+        -webkit-transform: translate3d(0,0,0);
+        -webkit-transition: all 500ms cubic-bezier(0.445, 1.650, 0.625, 0.805);
+        transform: translate3d(0,0,0);
+        transition: all 500ms cubic-bezier(0.445, 1.650, 0.625, 0.805); 
+        -webkit-backface-visibility:hidden;
+        -webkit-perspective: 1000;
+}
+#socialbar-slider.animated {
+   /* this needs to be assigned based on the size of the div, otherwise the animation 
+   will run out of room. currently its 40px per li. */
+   max-height: 40px;
+   -webkit-transform: translate3d(0,0,0);
+   transform: translate3d(0,0,0);
+}
+
 /* LAYOUT */
 #wrapper {
   width: 100%;
   max-width: 990px;
   margin: 0 auto;
 }
+#lines { 
+    border-bottom: 17px double black; 
+    border-top: 6px solid black; 
+    content:"";
+    height: 5px; 
+    width:30px;
+	margin: .83em 1em .25em 1em;
+	float: left;
+	display: inline-block;
+}
 .site-header {
-  margin: 0 0 3.631em;
+  width: 100%;
+  margin: 0 0 0 0;
   padding: 2.618em 0;
   text-align: center;
-  border-bottom: 5px solid #dddddd;
   -webkit-transition: all ease-in-out 0.2s;
   -moz-transition: all ease-in-out 0.2s;
   -ms-transition: all ease-in-out 0.2s;
   -o-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 .site-header img {
   margin: 0 0 1.618em;
@@ -393,7 +589,7 @@ blockquote p {
   color: #939393;
 }
 .articles {
-  margin: 0 auto;
+  margin: 3em auto 0;
   width: 100%;
   max-width: 740px;
 }
@@ -478,24 +674,37 @@ nav .next:after {
   line-height: .4;
 }
 aside {
-  margin: 0 0 3.631em;
-  padding: 4.236em 2.618em 1em;
+  margin: 0 0 1.5em;
+  padding: 2.236em 2.618em 1em;
   border-top: 5px solid #dddddd;
   text-align: center;
   font-size: .9em;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  display: flex;
+  align-items: center;
 }
 aside img {
-  margin: 0 0 1.618em;
+  margin-right: .75em;
   max-width: 80px;
+  width: 80px;
+  height: 80px;
+  -webkit-flex: none;
+  -ms-flex: none;
+   flex: none;
   -webkit-border-radius: 300px;
   border-radius: 300px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  
 }
 aside p {
   margin: 0 auto;
   width: 75%;
+  text-align: justify;
 }
 footer {
   margin: 0 auto 4.236em;
@@ -511,7 +720,10 @@ footer img {
   max-width: 30px;
 }
 /* SINLGE ARTICLE */
-.single-header {
+.header-nav{
+    clear:left;
+}
+.single-header, .image-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -520,41 +732,123 @@ footer img {
   padding: 1em 2.618em;
   color: #fff;
   background: #2aab55;
-  opacity: 0.97;
+  opacity: 0.90;
   filter: alpha(opacity=@opacity * 100);
-  -webkit-transition: all ease-in-out 0.2s;
-  -moz-transition: all ease-in-out 0.2s;
-  -ms-transition: all ease-in-out 0.2s;
-  -o-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s;
 }
-.single-header h1,
-.single-header a {
+.image-header, .header-image-archive{
+   height: 400px;
+   background-repeat: no-repeat;
+   background-position: bottom;
+   background-size: cover;
+ }
+.header-image-archive{
+   height: 200px;
+   left: inherit;
+   top: inherit;
+   z-index: -1;   
+   margin: 0 0 .618em;
+   border-radius: 10px;
+}
+.header-image-archive a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none; /* No underlines on the link */
+    z-index: 10; /* Places the link above everything else in the div */
+    background-color: #FFF; /* Fix to make div clickable in IE */
+    opacity: 0.7; /* Fix to make div clickable in IE */
+    filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
+.header-image-archive a:hover{
+    opacity: 0.2;
+}
+.image-header-title-nav{
+   float: left;
+   width: 21em;
+}
+.header-title-nav{
+   float: left;
+   width: 19em;
+}
+.single-header h1, .image-header h1,
+.single-header a, .image-header a {
   color: #fff;
 }
-.single-header h1 {
+.single-header h1, .image-header h1 {
   float: left;
   margin: 0;
   font-size: 1em;
   line-height: 2.2;
 }
-.single-header img {
+.image-header h1{
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
+	font-size: 1.2em;
+}
+.single-header img, .image-header img {
   float: left;
   margin: 0 1.618em 0 0;
   max-height: 35px;
 }
-.single-header nav {
+.image-header img {
+  max-height: 42px;
+}
+.single-header nav, .image-header nav {
   float: right;
   margin: .5em 0 0;
 }
-.single-header nav a span {
+.single-header nav a span, .image-header nav a span {
   display: none;
 }
-.single-header nav a:before,
-.single-header nav a:after {
+.single-header nav a:before, .image-header nav a:before,
+.single-header nav a:after, .image-header nav a:after {
   margin: 0;
   font-size: 1.618em;
 }
+/* author page stuff */
+.author-meta {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 1em;
+    line-height: 1;
+    font-style: italic;
+    color: #939393;
+}
+.author-cover-image{
+    position: relative;
+    margin-top: 2em;
+}
+.author-name{
+    color: white;
+    margin: 0em 0.5em;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.author-image{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 100%;
+    top: -10px;
+    left: -15px;
+
+}
+.author-bio{
+    color: #939393;
+    text-align: justify;
+}
+/* end author stuff */
 .single-article {
   margin: 6.854em auto 6.854em;
   width: 100%;
@@ -567,11 +861,35 @@ footer img {
   font-size: 1.1em;
   font-weight: 600;
 }
+.image-article{
+   padding-top: 350px;
+}
+/* Related Posts */
+div.related-posts-block {
+   margin-bottom: 1em;
+}
+div.related-posts-block ul{
+   list-style: none;
+   display: -ms-inline-flexbox;
+   display: -webkit-inline-flex;
+   display: inline-flex;
+   margin: 0;
+}
+div.related-posts-block  li{
+   display: block;
+   padding: 0 1em 0 1em;
+   /*fixes overflow in ie10*/
+   -ms-flex: 0 1 auto;
+}
+div.related-posts-block  p{
+   font-size: 75%;
+}
 /* RESPOND */
 @media only screen and (min-width: 769px) {
   body {
     font-size: 1.8em;
     line-height: 1.618;
+	padding: 0 2.618em;
   }
   h1 {
     font-size: 2.244em;
@@ -594,48 +912,200 @@ footer img {
     font-size: 0.857em;
   }
   .site-header {
-    margin: 0 0 5.874em;
+    margin: 0 0 0 0;
     padding: 5.874em 0;
   }
   article {
-    margin: 0 0 5.874em;
+    margin: 0 0 6em;
   }
   aside {
     padding-left: 20%;
     padding-right: 20%;
   }
   .single-article {
-    margin: 9.505em auto 9.505em;
+    margin: 9.505em auto 5em;
   }
 }
 /* ANIMATE */
 @-webkit-keyframes up {
-  0% {
-    top: 0;
+  from {
+    -ms-transform: translateY(0%);
+	-webkit-transform: translateY(0%);
+	transform: translateY(0%);
+    opacity: 0.90;
   }
-  10% {
-    top: 5px;
-  }
-  100% {
-    top: -100px;
+  to {
+    -ms-transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    opacity: 0;
   }
 }
 @-webkit-keyframes down {
-  0% {
-    top: -100px;
+  from {
+    -ms-transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+    opacity: 0;
   }
-  90% {
-    top: 5px;
-  }
-  100% {
-    top: 0;
+  to {
+    -ms-transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    opacity: 0.90;
   }
 }
-.single-header.hide {
+@keyframes up {
+  from {
+    -ms-transform: translateY(0%);
+	-webkit-transform: translateY(0%);
+	transform: translateY(0%);
+    opacity: 0.90;
+  }
+  to {
+    -ms-transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes down {
+  from {
+	transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 0.90;
+  }
+}
+/* animation related */ 
+.single-header.hide, .image-header.hide {
   -webkit-animation: up 1s;
   -webkit-animation-fill-mode: forwards;
+   animation: up 1s;
+   animation-fill-mode: forwards;
 }
-.single-header.show {
+.single-header.show, .image-header.show {
   -webkit-animation: down 1s;
   -webkit-animation-fill-mode: forwards;
+   animation: down 1s;
+   animation-fill-mode: forwards;
 }
+/** Mobile **/
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
+aside {
+  padding-left: 0;
+  padding-right: 0;
+  }
+div.related-posts-block ul{
+   display: inline;
+}
+#menu-bar{
+  display: block;
+  border-bottom: 5px solid #dddddd;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  overflow: hidden;
+  background: #f2f2f2;
+  /* removes annoying gray activation block */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+#menu-toggle{
+  display: block;
+  height: 48px;
+}
+#menu-slider{
+   display: none;
+}
+#menu-slider.accordion_css3_support {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transform: translate3d(0,0,0);
+        -webkit-transition: all 500ms cubic-bezier(0.445, 1.650, 0.625, 0.805);
+        transform: translate3d(0,0,0);
+        transition: all 500ms cubic-bezier(0.445, 1.650, 0.625, 0.805); 
+        -webkit-backface-visibility:hidden;
+        -webkit-perspective: 1000;
+}
+#menu-slider.animated {
+   /* this needs to be assigned based on the size of the div, otherwise the animation 
+   will run out of room. currently its 40px per li. */
+   max-height: 200px;
+   -webkit-transform: translate3d(0,0,0);
+   transform: translate3d(0,0,0);
+}
+.menu-text{
+    display:inline;
+}
+#social-menu-item{
+   display:none;
+}
+#navbar {
+  width: 100%;
+  float: left;
+  margin: 0 0 0 0;
+  padding: 0;
+  list-style: none;
+  background-color: #f2f2f2;
+  border: 0px;
+   border-top: 1px solid #ccc; 
+  -webkit-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+  font-family: 'Open Sans', sans-serif;
+  display:inline;
+  }
+#navbar li {
+      width: 100%;
+	  border-top: 3px solid white;
+}
+/* gotta put it back */ 
+#navbar li:last-child{
+      border-top: 3px solid white;
+}
+#navbar li a {
+      display: block;
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+	  border-right: 0px;
+   }
+#navbar li a:hover {
+      color: #088933;
+      background-color: #fff;
+}
+#social-bar{
+   display:none;
+}
+.single-article{
+   padding-top: 50px;
+}
+.image-header{
+   height: 200px;
+   background-color: #fff;
+}
+.image-header h1{
+   font-size: 1em;
+}
+.image-header img{
+   max-height: 35px;
+}
+.image-article{
+   padding-top: 140px;
+}	  
+.image-header-title-nav{
+   float: left;
+   width: auto;
+}
+.header-title-nav{
+   float: left;
+   width: auto;
+}
+}
+
+

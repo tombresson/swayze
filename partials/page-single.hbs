@@ -1,0 +1,21 @@
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+<article class="single-article {{#if image}}image-article {{/if}}{{post_class}}">
+
+    <header>
+
+    	<h1 class="post-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h1>
+
+    </header>
+
+    <section>
+
+    	{{content}}
+
+    </section>
+
+</article>
+
+
+{{/post}}
+

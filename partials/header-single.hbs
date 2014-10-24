@@ -1,8 +1,19 @@
-<header class="single-header">
-
-	<a href="/" title="Home"><img src="{{#if @blog.logo}}{{@blog.logo}}{{else}}/images/logo.png{{/if}}" title="{{@blog.title}}" /></a>
-	{{#if @blog.title}}<h1><a href="/" title="{{@blog.title}}">{{@blog.title}}</a></h1>{{/if}}
-
+<header class="{{#if post.image}}image-header" style="background-image: url({{post.image}}){{else}}single-header{{/if}}">
+    <div class={{#if post.image}}"image-header-title-nav"{{else}}"header-title-nav"{{/if}}>
+        <div>
+            <a href="/" title="Home"><img src="{{#if @blog.logo}}{{@blog.logo}}{{else}}/images/logo.png{{/if}}" title="{{@blog.title}}" /></a>
+            {{#if @blog.title}}<h1><a href="/" title="{{@blog.title}}">{{@blog.title}}</a></h1>{{/if}}
+        </div>
+        <div class="header-nav">
+             <ul id={{#if post.image}}"imagearticlenavbar"{{else}}"articlenavbar"{{/if}}>
+               <li><a href="http://yoursite.com"><i class="nav-icon fa fa-home fa-lg fa-fw"></i></a></li>             
+               <li><a href="http://photos.yoursite.com"><i class="nav-icon fa fa-camera-retro fa-lg fa-fw"></i></a></li>
+               <li><a href="http://yoursite.com/projects/"><i class="nav-icon fa fa-flask fa-lg fa-fw"></i></a></li>
+               <li><a href="http://yoursite.com/about/"><i class="nav-icon fa fa-child fa-lg fa-fw"></i></a></li>
+               <li><a href="http://yoursite.com/contact/"><i class="nav-icon fa fa-inbox fa-lg fa-fw"></i></a></li>
+            </ul>
+        </div>
+     </div>
 	{{> pagination}}
 
 </header>
