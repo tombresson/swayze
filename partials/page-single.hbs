@@ -1,10 +1,10 @@
+<div id="wrapper"> {{!--The other half of the div is in the footer--}}
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
+<div id="article-wrapper">
 <article class="single-article {{#if image}}image-article {{/if}}{{post_class}}">
 
     <header>
-
-    	<h1 class="post-title"><a href="{{url}}" title="{{title}}">{{title}}</a></h1>
 
     </header>
 
@@ -18,4 +18,5 @@
 
 
 {{/post}}
+</div>
 

@@ -13,13 +13,14 @@
 	var scrollingUp = false;
     var atBottom = false;
     var isHidden = false;
+    var isSliding = false;
     var bottomThresh = 150;
     //the down threshold is the number of px travel from the top before the floating div goes away
     //the up threshold is the same except its the num of px from the top when the header comes back.
-    var imgMobileDownThresh = 100;
-    var imgMobileUpThresh = 400;
-    var imgDeskDownThresh = 300;
-    var imgDeskUpThresh = 400;
+    var imgMobileDownThresh = 200;
+    var imgMobileUpThresh = 180;
+    var imgDeskDownThresh = 500;
+    var imgDeskUpThresh = 600;
     var noImgMobileDownThresh = 120;
     var noImgMobileUpThresh = 280;
     var noImgDeskDownThresh = 200;
@@ -35,10 +36,27 @@
     //this is direct from the CSS, so if the CSS changes, this needs to change as well.        
     function detectMobile(){
             isMobile = window.matchMedia("only screen and (max-width: 767px)").matches || window.matchMedia("only screen and (max-device-width: 767px)").matches;
-    }   
-    
+    }
+    function slideElem(element, classToRemove, classToAdd){
+        $(element).removeClass(classToRemove);
+        $(element).addClass(classToAdd);
+        isSliding = true;
+        $(element).one('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function (){
+            //console.log("done transitioning");
+            isSliding = false;
+            //fire scroll handler.
+            $(document).scroll();
+        });        
+    }
+    function eventHandlers(){
+        $("a[href='#top']").click(function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    }
    $(document).ready(function () {
         detectMobile();
+        eventHandlers();
         function isScrollingUp(){   
 			st = $(document).scrollTop();
 			if (st-prevScrollTop > 10){
@@ -61,7 +79,7 @@
 			}
 		}
 		function checkPagePosition(downScrollThresh, upScrollThresh, isImg){
-			isScrollingUp();
+            isScrollingUp();
             if($(window).scrollTop() + $(window).height() >= $(document).height()){
                 atBottom = true;
                 //console.log("at bottom");
@@ -70,31 +88,33 @@
                 atBottom = false;
                 //console.log("not at bottom");
             }
-            if(isImg){
-                if (((st >= downScrollThresh && !scrollingUp) || atBottom) && !isHidden) {
-                   $('.image-header').removeClass('show');
-                   $('.image-header').addClass('hide');
-                   isHidden = true;
-                } // End If Statement
-                if (scrollingUp && st < upScrollThresh && $('.image-header').hasClass('hide') && !atBottom && isHidden){
-                   $('.image-header').removeClass('hide');
-                   $('.image-header').addClass('show');
-                   isHidden = false;
-                } // End If Statement
+            if(!isSliding){
+                if(isImg){
+                    if (((st >= downScrollThresh && !scrollingUp)) && !isHidden) {
+                       slideElem('.mini-header', 'hide', 'show');
+                       //slideElem('.image-header','show', 'hide');
+                       isHidden = true;
+                    } // End If Statement
+                    if (scrollingUp && st < upScrollThresh && !atBottom && isHidden){
+                       //slideElem('.image-header', 'hide', 'show');
+                       slideElem('.mini-header', 'show', 'hide');
+                       isHidden = false;
+                    } // End If Statement
+                }
+                else{
+                    if (((st >= downScrollThresh && !scrollingUp)) && !isHidden) {
+                       slideElem('.mini-header', 'hide', 'show');
+                       //slideElem('.single-header', 'show', 'hide');
+                       isHidden = true;
+                    } // End If Statement
+                    if (scrollingUp && st < upScrollThresh && !atBottom && isHidden){
+                       //slideElem('.single-header', 'hide', 'show');
+                       slideElem('.mini-header', 'show', 'hide');
+                       isHidden = false;
+                    } // End If Statement
+                }
             }
-            else{
-                if (((st >= downScrollThresh && !scrollingUp) || atBottom) && !isHidden) {
-                   $('.single-header').removeClass('show');
-                   $('.single-header').addClass('hide');
-                   isHidden = true;
-                } // End If Statement
-                if (scrollingUp && st < upScrollThresh && $('.single-header').hasClass('hide') && !atBottom && isHidden){
-                   $('.single-header').removeClass('hide');
-                   $('.single-header').addClass('show');
-                   isHidden = false;
-                } // End If Statement
-            }
-		}
+        }
         if ($('.single-header').length) {
 
            $(document).on('touchmove touchend touchstart scroll', function () {
@@ -114,11 +134,11 @@
            $(document).on('touchmove touchstart touchend scroll', function () {
                 if(isMobile){
                     checkPagePosition(imgMobileDownThresh,imgMobileUpThresh,true);
-                    //console.log("mobile scroll");
+                    //console.log("mobile img scroll");
                 }
                 else{
                     checkPagePosition(imgDeskDownThresh,imgDeskUpThresh,true);
-                   //console.log("desk scroll");
+                    //console.log("desk img scroll");
                 }
             });
         }
@@ -152,6 +172,7 @@
                 } else {
                         $("#socialbar-slider").toggleClass("animated");
                 }
+                $("#social-menu-item > a").toggleClass("hovered");
 			} //end if
         });
         //for the related posts "plugin"

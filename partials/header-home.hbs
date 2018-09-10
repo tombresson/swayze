@@ -1,39 +1,42 @@
-<header class="site-header"{{#if @blog.cover}} style="background-image: url('{{@blog.cover}}');"{{/if}}>
+<div id="site-wrapper"> {{!--The other half of the div is in the footer--}}
 
-	<a href="/" title="Home"><img width="60" height="60" src="{{#if @blog.logo}}{{@blog.logo}}{{else}}/images/logo@2x.png{{/if}}" title="{{@blog.title}}" /></a>
-	{{#if @blog.title}}<h1><a href="/" title="{{@blog.title}}">{{@blog.title}}</a></h1>{{/if}}
-	{{#if @blog.description}}<h2>{{@blog.description}}</h2>{{/if}}
+    <header class="site-header"{{#if @blog.cover}} style="background-image: url('{{@blog.cover}}');"{{/if}}>
 
-</header>
-<div id="menu-bar">
-	<div id="menu-toggle">
-		<div class="inline-div"><i class="menu-icon fa fa-bars fa-2x"></i><h2 class="menu">MENU</h2></div>
-	</div>
-	  <div id="menu-slider">
-	    <ul id="navbar">
-		   <li><a href="http://photos.yoursite.com"><i class="nav-icon fa fa-camera-retro fa-lg fa-fw"></i>PHOTOS</a></li>
-		   <li><a href="http://yoursite.com/projects/"><i class="nav-icon fa fa-flask fa-lg fa-fw"></i>PROJECTS</a></li>
-           <li id="social-menu-item"><a><i class="nav-icon fa fa-share-alt fa-lg fa-fw"></i>SOCIAL</a></li>
-           <li><a href="http://yoursite.com/about/"><i class="nav-icon fa fa-child fa-lg fa-fw"></i>ABOUT</a></li>
-		   <li><a href="http://yoursite.com/contact/"><i class="nav-icon fa fa-inbox fa-lg fa-fw"></i>CONTACT</a></li>
-		   <li><a href="http://yoursite.com/ghost/"><i class="nav-icon fa fa-cog fa-lg fa-fw"></i>ADMIN</a></li>
-        </ul>
-        <div id="socialbar-slider">
-            <ul id="socialbar">
-                <li><a class="gplus" href="http://plus.google.com/"><i class="about-icon fa fa-google-plus fa-2x fa-fw"></i></a></li>
-                <li><a class="twitter" href="http://twitter.com/"><i class="about-icon fa fa-twitter fa-2x fa-fw"></i></a></li>
-                <li><a class="reddit" href="http://reddit.com/"><i class="about-icon fa fa-reddit fa-2x fa-fw"></i></a></li>
-                <li><a class="instagram" href="http://instagram.com/"><i class="about-icon fa fa-instagram fa-2x fa-fw"></i></a></li>
-                <li><a class="youtube" href="http://www.youtube.com/"><i class="about-icon fa fa-youtube fa-2x fa-fw"></i></a></li>
-                <li><a class="facebook" href="http://facebook.com/"><i class="about-icon fa fa-facebook fa-2x fa-fw"></i></a></li>
-                <li><a class="spotify" href="http://open.spotify.com/"><i class="about-icon fa fa-spotify fa-2x fa-fw"></i></a></li>
-                <li><a class="github" href="http://github.com/"><i class="about-icon fa fa-github fa-2x fa-fw"></i></a></li>
-                <li><a class="steam" href="http://steamcommunity.com/"><i class="about-icon fa fa-steam fa-2x fa-fw"></i></a></li>
+        <a href="/" title="Home"><img width="60" height="60" src="{{#if @blog.logo}}{{@blog.logo}}{{else}}/images/logo@2x.png{{/if}}" title="{{@blog.title}}" /></a>
+        {{#if @blog.title}}<h1><a href="/" title="{{@blog.title}}">{{@blog.title}}</a></h1>{{/if}}
+        {{#if @blog.description}}<h2>{{@blog.description}}</h2>{{/if}}
 
-            </ul>
+    </header>
+    <div id="menu-bar">
+        <div id="menu-toggle">
+            <div class="inline-div"><i class="menu-icon fa fa-bars fa-2x"></i><h2 class="menu">MENU</h2></div>
         </div>
-      </div>
-</div>
+          <div id="menu-slider">
+            <ul id="navbar">
+               <li><a href="http://photos.yoursite.com"><i class="nav-icon fa fa-camera-retro fa-lg fa-fw"></i>PHOTOS</a></li>
+               <li><a href="http://yoursite.com/projects/"><i class="nav-icon fa fa-flask fa-lg fa-fw"></i>PROJECTS</a></li>
+               <li id="social-menu-item"><a><i class="nav-icon fa fa-share-alt fa-lg fa-fw"></i>SOCIAL</a></li>
+               <li><a href="http://yoursite.com/about/"><i class="nav-icon fa fa-child fa-lg fa-fw"></i>ABOUT</a></li>
+               <li><a href="http://yoursite.com/contact/"><i class="nav-icon fa fa-inbox fa-lg fa-fw"></i>CONTACT</a></li>
+               <li><a href="http://yoursite.com/ghost/"><i class="nav-icon fa fa-cog fa-lg fa-fw"></i>ADMIN</a></li>
+            </ul>
+            <div id="socialbar-slider">
+                <ul id="socialbar">
+                    <li><a class="gplus" href="http://plus.google.com/+yoursite/"><i class="about-icon fa fa-google-plus fa-2x fa-fw"></i></a></li>
+                    <li><a class="twitter" href="http://twitter.com/turfyman"><i class="about-icon fa fa-twitter fa-2x fa-fw"></i></a></li>
+                    <li><a class="reddit" href="http://reddit.com/u/turfyman"><i class="about-icon fa fa-reddit fa-2x fa-fw"></i></a></li>
+                    <li><a class="instagram" href="http://instagram.com/turfyman"><i class="about-icon fa fa-instagram fa-2x fa-fw"></i></a></li>
+                    <li><a class="youtube" href="http://www.youtube.com/user/turfyman"><i class="about-icon fa fa-youtube fa-2x fa-fw"></i></a></li>
+                    <li><a class="facebook" href="http://facebook.com/tom.bresson"><i class="about-icon fa fa-facebook fa-2x fa-fw"></i></a></li>
+                    <li><a class="spotify" href="http://open.spotify.com/user/turfyman"><i class="about-icon fa fa-spotify fa-2x fa-fw"></i></a></li>
+                    <li><a class="github" href="http://github.com/turfyman"><i class="about-icon fa fa-github fa-2x fa-fw"></i></a></li>
+                    <li><a class="steam" href="http://steamcommunity.com/id/turfyman"><i class="about-icon fa fa-steam fa-2x fa-fw"></i></a></li>
+                    <li><a class="rss" href="http://yoursite.com/rss/"><i class="about-icon fa fa-rss-square fa-2x fa-fw"></i></a></li>
+
+                </ul>
+            </div>
+          </div>
+    </div>
 
 
 
