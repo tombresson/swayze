@@ -314,7 +314,7 @@ a.steam{
   color: #000000;
 }
 a.spotify{
-  color: #B3D500;
+  color: #23D05F;
 }
 a.rss{
   color: #ff6600;
@@ -506,13 +506,27 @@ blockquote p {
     border-radius: 10px;
 }
 #mininavbar{
+    text-align: center;
     align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between; 
+    padding: 8px 0px;
+}
+#mininavbar li.icon{
+    display: inline;
 }
 #mininavbar h2{
     color: #fff;
+    padding-bottom: 5px;
     margin: 0em 0.5em;
     font-size: 1.2em;
     text-align: center;
+}
+#mininavbar li a.home{
+    padding: 8px 30px;
+}
+#mininavbar li a.scroll{
+    padding: 8px 30px;
 }
 /* End navigation bar styling. */
 
@@ -752,7 +766,7 @@ footer img {
   margin: 0 0 3.631em;
   color: #fff;
   background: #2aab55;
-  opacity: 0.90;
+  opacity: 1;
   filter: alpha(opacity=@opacity * 100);
   z-index: 2147483647;
 }
@@ -762,7 +776,7 @@ footer img {
 }
 .mini-header{
   opacity: 0;
-  padding: 0.5em 0.8em;
+  padding: 0em;
   z-index: 2147483646;
   -ms-transform: translateY(-100%);
   -webkit-transform: translateY(-100%);
@@ -781,7 +795,7 @@ footer img {
    top: inherit;
    z-index: -1;   
    margin: 0 0 .618em;
-   border-radius: 10px;
+   border-radius: 5px;
 }
 .header-image-archive a{
     display: block;
@@ -792,7 +806,7 @@ footer img {
     text-decoration: none; /* No underlines on the link */
     z-index: 2147483647; /* Places the link above everything else in the div */
     background-color: #FFF; /* Fix to make div clickable in IE */
-    opacity: 0.7; /* Fix to make div clickable in IE */
+    opacity: 0.6; /* Fix to make div clickable in IE */
     filter: alpha(opacity=1); /* Fix to make div clickable in IE */
 }
 .header-image-archive a:hover{
@@ -1130,6 +1144,18 @@ div.related-posts-block ul{
       color: #088933;
       background-color: #fff;
 }
+#mininavbar li a.home{
+    padding: 10px 0px 10px 10px;
+}
+#mininavbar li a.scroll{
+    padding:  10px 10px 10px 0px;
+}
+#mininavbar li.icon{
+    min-width: 32px;
+}
+#mininavbar h2{
+    margin: 0em;
+}
 #social-bar{
    display:none;
 }
@@ -1172,6 +1198,11 @@ div.related-posts-block ul{
 }
 .disqus{
    margin: 0;
+}
+/* Related Posts */
+div.related-posts-block {
+   margin-left: 0em;
+   margin-right: 0em;
 }
 }
 

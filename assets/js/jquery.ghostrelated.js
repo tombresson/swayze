@@ -28,7 +28,7 @@
 
         var self = this,
             count = 0;
-
+        //console.log("current post: " + this);
         this._currentPostTags = this.getCurrentPostTags(this.options.tagsClass);
 
         var related = this.matchByTag(this._currentPostTags, posts);
@@ -90,7 +90,7 @@
         if (postTitle.length < 1) {
             this.reportError("Couldn't find the post title with class: " + titleClass);
         }
-
+        //console.log("Current Post: " + postTitle);
         return postTitle;
     };
 
@@ -161,6 +161,7 @@
                     if (postTag.toLowerCase() === tag.toLowerCase() && !beenAdded) {
                         matches.push(post);
                         beenAdded = true;
+                        //console.log("post added " + post.title);
                     }
                 });
             });
