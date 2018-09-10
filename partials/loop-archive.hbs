@@ -8,8 +8,8 @@
 		<header>
 			<span class="post-meta">{{date published_at format="DD MMMM YYYY"}} by {{#author}}<a href="{{url}}">{{name}}</a>{{/author}} {{#if tags}}on {{tags separator=" | "}}{{/if}} WITH <a href="{{url}}#disqus_thread" title=" "> </a></span>
 
-			<h1 class="{{#if image}}image-post-title{{else}}post-title{{/if}}"><a href="{{url}}" title="{{title}}">{{title}}</a></h1>
-            {{#if image}}<div class="header-image-archive" style="background-image: url({{image}})"><a href="{{url}}"></a></div>{{/if}}
+			<h1 class="{{#if feature_image}}image-post-title{{else}}post-title{{/if}}"><a href="{{url}}" title="{{title}}">{{title}}</a></h1>
+            {{#if feature_image}}<div class="header-image-archive" style="background-image: url({{img_url feature_image}})"><a href="{{url}}"></a></div>{{/if}}
 		</header>
 
 		<section>

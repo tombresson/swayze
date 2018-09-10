@@ -1,6 +1,6 @@
 <div id="site-wrapper"> {{!--The other half of the div is in the footer--}}
 
-    <header class="site-header"{{#if @blog.cover}} style="background-image: url('{{@blog.cover}}');"{{/if}}>
+    <header class="site-header"{{#if @blog.cover_image}} style="background-image: url('{{@blog.cover_image}}');"{{/if}}>
 
         <a href="/" title="Home"><img width="60" height="60" src="{{#if @blog.logo}}{{@blog.logo}}{{else}}/images/logo@2x.png{{/if}}" title="{{@blog.title}}" /></a>
         {{#if @blog.title}}<h1><a href="/" title="{{@blog.title}}">{{@blog.title}}</a></h1>{{/if}}

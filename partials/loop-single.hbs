@@ -2,7 +2,7 @@
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 <div id="article-wrapper">
-<article class="single-article {{#if image}}image-article {{/if}}{{post_class}}">
+<article class="single-article {{#if feature_image}}image-article {{/if}}{{post_class}}">
 
     <header>
 
@@ -23,7 +23,7 @@
 </ul>
 </div>
 <aside>
-    <img src="{{author.image}}" title="{{author.name}}" />
+    <img src="{{author.profile_image}}" title="{{author.name}}" />
     <p>{{author.bio}}</p>
 </aside>
 
